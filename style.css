@@ -1,0 +1,246 @@
+/* @import 'keyframe.css'; */
+/* 
+font-family: 'Overpass', sans-serif; 
+*/
+
+/* ### Primary
+
+- Orange: hsl(25, 97%, 53%)
+
+### Neutral
+
+- White: hsl(0, 0%, 100%)
+- Light Grey: hsl(217, 12%, 63%)
+- Medium Grey: hsl(216, 12%, 54%)
+- Dark Blue: hsl(213, 19%, 18%)
+- Very Dark Blue: hsl(216, 12%, 8%) */
+
+/* ## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px */
+
+@keyframes fade-in {
+    0%{
+        opacity: 0;
+        transform: translateY(-350px);
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+@keyframes fade-out {
+    0%{
+        opacity: 100%;
+    }
+    100%{
+        transform: translateY(-350px);
+        opacity: 0%;
+    }
+}
+
+/* -------------------------------------------- */
+
+body{
+    font-family: 'Overpass', sans-serif;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* How Did We Do modal ----------------------------- */
+#how-modal{
+    width: 412px;
+    height: 416px;
+    background: radial-gradient(98.96% 98.96% at 50% 0%, #232A34 0%, #181E27 100%);
+    border-radius: 28px;
+    margin: 7rem;
+    z-index: 2;
+}
+#how-modal::backdrop{
+    background: red;
+}
+#how-modal[closing]{
+    display: block;
+    pointer-events:none;
+    inset: 0;
+    animation : fade-out 1200ms forwards;
+}
+
+#how-modal .star{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    /* margin: 32px; */
+    background: #262E38;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:32px;
+
+}
+#how-modal h1{
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-left: 32px;
+    margin-bottom: 15px;
+}
+#how-modal p {
+    color: #969FAD;
+    max-width: 340px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    margin-left: 32px;
+    margin-bottom: 24px;
+}
+
+.rating-btn-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 32px 32px 32px;
+}
+
+.rating-btn{
+    height: 51px;
+    width: 51px;
+    background-color: #262E38;
+    color: hsl(216, 12%, 54%);
+    border-radius: 50%;
+    border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    transition: 250ms ease-in-out;
+}
+.rating-btn:hover{
+    background-color: hsl(217, 12%, 63%);
+    color: white;
+}
+.rating-btn.is-active{
+    background-color: hsl(25, 97%, 53%);
+    color: white;
+}
+
+
+.submit-btn-container{
+    display: flex;
+}
+.submit-btn{
+    margin: 0 auto;
+    width: 341px;
+    height: 45px;
+    border-radius: 22.5px;
+    background-color: hsl(25, 97%, 53%);
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18.99px;
+    letter-spacing: 2px;
+    border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    transition: 200ms ease-in-out;
+}
+.submit-btn:hover{
+    background-color: white;
+    color: hsl(25, 97%, 53%);
+}
+
+
+/* Thank You modal ----------------------------- */
+.content{
+    position: fixed;
+    z-index: 1;
+}
+
+#thankyou-modal{
+    width: 412px;
+    height: 416px;
+    background: radial-gradient(98.96% 98.96% at 50% 0%, #232A34 0%, #181E27 100%);
+    border-radius: 28px;
+    margin: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden;
+    /* left: 0;
+    top: 0; */
+    /* display: none; */
+    /* visibility: hidden;
+    top: -200%;
+    transform: scale(0.5);
+    transition: opacity 300ms ease-in-out,
+    top 1000ms ease-in-out, transform 1000ms ease-in-out; */
+}
+#thankyou-modal::backdrop {
+    background: red;
+}
+/* #thankyou-modal.thankyou-active{
+    opacity: 1;
+    top: 50%;
+    transform: scale(1);
+    transition: transform 300ms cubic-bezier(0.19, 1, 0.22, 1);
+} */
+#thankyou-modal[open]{
+    visibility: visible;
+    animation: fade-in 1200ms forwards;
+}
+
+.thankyou-img {
+    margin-top: 45px;
+    margin-bottom: 32px;
+}
+
+#thankyou-modal .rating-result{
+    height: 32px;
+    max-width: 193px;
+    border-radius: 22.5px;
+    background-color: #262E38;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #FC7614;
+    padding: 0px 20px;
+}
+#thankyou-modal h2{
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-top: 32px;
+    margin-bottom: 7px;
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+}
+#thankyou-modal h2:hover{
+    color: #ffbd8d;
+    transform: scale(1.01);
+}
+
+#thankyou-modal .paragraph{
+    max-width: 340px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #969FAD;
+}
+ 
